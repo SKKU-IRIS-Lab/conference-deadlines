@@ -5985,8 +5985,8 @@
           "id": "icce-asia-VbffVh7f-paper_submission",
           "label": "논문 제출",
           "kind": "paper_submission",
-          "dueAtUtc": "2026-09-05T11:59:59Z",
-          "displayDate": "2026. 9. 4",
+          "dueAtUtc": "2026-09-14T11:59:59Z",
+          "displayDate": "2026. 9. 13",
           "timezone": "AoE (-12:00, assumed)",
           "status": "timezone-review-needed",
           "track": "Main conference"
@@ -10249,6 +10249,17 @@
       "rawValue": "September 30th, 2026",
       "locator": "#important-dates",
       "confidence": 0.72
+    },
+    {
+      "id": "auto-icce-asia-VbffVh7f:icce-asia-VbffVh7f-paper_submission:2026-09-07",
+      "editionId": "icce-asia-VbffVh7f",
+      "deadlineId": "icce-asia-VbffVh7f-paper_submission",
+      "sourceTitle": "ICCE-Asia 2026 official page · automated extraction",
+      "sourceUrl": "https://icce-asia2026.org/2026/",
+      "checkedAt": "2026-09-07T01:45:05.815Z",
+      "rawValue": "September 13th, 2026",
+      "locator": "#important-dates",
+      "confidence": 0.72
     }
   ],
   "history": [
@@ -10386,6 +10397,15 @@
       "before": "연구실 Notion Timeline 기반 잠정 일정",
       "after": "2026-09-01 공식 CFP 페이지 대조 일정",
       "state": "accepted"
+    },
+    {
+      "id": "auto-icce-asia-VbffVh7f:icce-asia-VbffVh7f-paper_submission:2026-09-07",
+      "editionId": "icce-asia-VbffVh7f",
+      "changedAt": "2026-09-07T01:45:05.815Z",
+      "summary": "공식 페이지 자동 추출 날짜 변경 제안",
+      "before": "2026-09-05T11:59:59Z",
+      "after": "2026-09-14T11:59:59Z",
+      "state": "pending"
     }
   ]
 }
