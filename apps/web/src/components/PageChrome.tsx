@@ -3,6 +3,8 @@ import { BRAND } from "../brand"
 import { Icon } from "./Icons"
 import type { CatalogView } from "./Primitives"
 
+const irisLogo = new URL("../iris-logo.png", import.meta.url).href
+
 interface NavigationProps {
   readonly theme: "light" | "dark"
   readonly onToggleTheme: () => void
@@ -63,7 +65,7 @@ export function ErrorState({ message }: { readonly message: string }) {
 function Brand({ exploreHref }: { readonly exploreHref: string }) {
   return (
     <a aria-label={`${BRAND.name} 홈`} className="brand" href={exploreHref}>
-      <span className="brand-mark">I</span>
+      <img className="brand-mark" src={irisLogo} alt="" width={36} height={36} />
       <span className="brand-copy">
         <strong>{BRAND.name}</strong>
         <small>{BRAND.tagline}</small>

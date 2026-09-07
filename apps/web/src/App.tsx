@@ -15,10 +15,7 @@ const THEME_STORAGE_KEY = "conference-atlas-theme"
 function initialTheme(): "light" | "dark" {
   const stored = window.localStorage.getItem(THEME_STORAGE_KEY)
   if (stored === "light" || stored === "dark") return stored
-  return typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light"
+  return "light"
 }
 
 export function App() {
