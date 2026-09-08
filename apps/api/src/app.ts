@@ -18,6 +18,7 @@ import {
   readManagementAuthConfig,
   sessionCookie,
 } from "./admin-auth"
+import { type ChatDependencies, registerChat } from "./chat"
 import { dispatchWeeklySourceMonitor, readGitHubAppConfig } from "./github-app"
 import { ManagementStore } from "./management-store"
 
@@ -34,6 +35,7 @@ export interface AppOptions {
   readonly managementStore?: ManagementStore
   readonly managementAuth?: ManagementAuthConfig
   readonly managementSyncToken?: string
+  readonly chat?: ChatDependencies
 }
 
 function defaultManagementStore(): ManagementStore {
@@ -63,6 +65,15 @@ export function createApp(options: AppOptions = {}): Hono {
     )
   }
   app.get("/api/v1/health", (context) => context.json({ status: "ok" }))
+  registerChat(
+    app,
+    async (request) =>
+      managementAuth
+        ? getSession(managementStore, readCookie(request, "conference_admin_session"))
+        : undefined,
+    managementAuth?.publicWebOrigin,
+    options.chat,
+  )
 
   app.get("/api/v1/catalog/meta", (context) => {
     const lastCheckedAt = getCatalog().evidence.reduce<string | null>(

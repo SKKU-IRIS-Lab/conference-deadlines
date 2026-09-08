@@ -3,6 +3,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react"
 import { getCatalogLastUpdated, getEditionBundle, getEditions } from "./api"
 import { AdminPanel } from "./components/AdminPanel"
 import { CatalogControls, ProductHeader } from "./components/CatalogControls"
+import { ChatWidget } from "./components/ChatWidget"
 import { FIELD_CATEGORY_ORDER } from "./components/category-tone"
 import { EditionResults } from "./components/EditionResults"
 import { EvidencePanel } from "./components/EvidencePanel"
@@ -269,6 +270,7 @@ export function App() {
         )}
       </main>
       <SiteFooter />
+      {!(compact && selected) ? <ChatWidget /> : null}
     </div>
   )
 }
