@@ -6,6 +6,7 @@ export interface SourcePageObservations {
   readonly sourceUrl: string
   readonly finalUrl: string
   readonly checkedAt: string
+  readonly html?: string
   readonly observations: readonly ParsedObservation[]
 }
 

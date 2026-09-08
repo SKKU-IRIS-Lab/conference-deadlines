@@ -92,7 +92,18 @@ describe("conference request synchronization", () => {
       { ...source, observations: [] },
       new Date("2026-09-02T00:00:00Z"),
     ).edition
-    const tracked: Catalog = { ...catalog, editions: [pendingEdition] }
+    const tracked: Catalog = {
+      ...catalog,
+      editions: [
+        {
+          ...pendingEdition,
+          location: "Boulder, USA",
+          dateRange: "2027. 5. 17 - 5. 20",
+          conferenceStart: "2027-05-17",
+          conferenceEnd: "2027-05-20",
+        },
+      ],
+    }
 
     const result = await syncConferenceRequests(tracked, [request], {
       now: new Date("2026-09-02T00:00:00Z"),
@@ -100,6 +111,10 @@ describe("conference request synchronization", () => {
     })
 
     expect(result.catalog.editions[0]?.deadlines).toHaveLength(1)
+    expect(result.catalog.editions[0]?.location).toBe("Boulder, USA")
+    expect(result.catalog.editions[0]?.conferenceStart).toBe("2027-05-17")
+    expect(result.catalog.editions[0]?.conferenceEnd).toBe("2027-05-20")
+    expect(result.catalog.editions[0]?.dateRange).toBe("2027. 5. 17 - 5. 20")
     expect(result.catalog.evidence).toHaveLength(1)
     expect(result.imported).toEqual(["request-123"])
     expect(result.skipped).toEqual([])

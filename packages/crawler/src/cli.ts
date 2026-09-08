@@ -60,7 +60,12 @@ async function main(): Promise<void> {
     // Future-edition audits are meaningful for the weekly full scan. Running
     // them during every narrow daily scan would reopen the same review PR.
     const findings = withinDaysValue === undefined ? auditFutureEditionSchedules(catalog) : []
-    if (run.changes.length > 0 || findings.length > 0 || run.scheduleProposals.length > 0) {
+    if (
+      run.changes.length > 0 ||
+      findings.length > 0 ||
+      run.scheduleProposals.length > 0 ||
+      run.metadataFindings?.length
+    ) {
       await writeMonitorReview(
         "data/monitor/source-state.json",
         "data/monitor/monthly-review.md",
@@ -78,6 +83,7 @@ async function main(): Promise<void> {
           sourceCount: run.sources.length,
           changeCount: run.changes.length,
           scheduleProposalCount: run.scheduleProposals.length,
+          metadataFindingCount: run.metadataFindings?.length ?? 0,
           autoMergeEligible: isAutoMergeEligible(run),
           staleFutureScheduleCount: findings.length,
         },

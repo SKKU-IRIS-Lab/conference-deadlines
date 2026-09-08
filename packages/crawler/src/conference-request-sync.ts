@@ -217,7 +217,12 @@ export async function syncConferenceRequests(
         skipped.push(`${request.id}:dates-pending`)
         continue
       }
-      if (trackedIndex >= 0) nextEditions.splice(trackedIndex, 1, result.edition)
+      if (trackedEdition)
+        nextEditions.splice(trackedIndex, 1, {
+          ...trackedEdition,
+          deadlines: result.edition.deadlines,
+          status: result.edition.status,
+        })
       else nextEditions.push(result.edition)
       nextEvidence.push(...result.evidence)
       imported.push(request.id)

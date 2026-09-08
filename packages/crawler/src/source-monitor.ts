@@ -2,6 +2,7 @@ import { mkdir } from "node:fs/promises"
 import { dirname } from "node:path"
 import { type Catalog, catalogSchema } from "@conf/contracts"
 import { z } from "zod"
+import { auditConferenceMetadata, type MetadataFinding } from "./metadata-audit"
 import { parseOfficialHtml } from "./parsers"
 import { fetchRegisteredHtml } from "./safe-fetch"
 import {
@@ -72,6 +73,7 @@ export interface MonitorRun {
   readonly state: SourceState
   readonly changes: readonly SourceChange[]
   readonly scheduleProposals: readonly ScheduleProposal[]
+  readonly metadataFindings?: readonly MetadataFinding[]
 }
 
 export interface SourceMonitorOptions {
@@ -232,6 +234,7 @@ async function checkSource(source: MonitorSource): Promise<SourceCheckResult> {
         finalUrl: fetched.finalUrl,
         checkedAt,
         observations: parseOfficialHtml(fetched.body),
+        html: fetched.body,
       },
     }
   } catch (error: unknown) {
@@ -280,11 +283,28 @@ export async function runSourceMonitor(
           schemaVersion: 1 as const,
           sources: { ...previous.sources, ...checkedState.sources },
         }
+  const checkedEditionIds = new Set(sources.map((source) => source.editionId))
+  const metadataFindings = auditConferenceMetadata(
+    {
+      ...catalog,
+      editions: catalog.editions.filter((edition) => checkedEditionIds.has(edition.id)),
+    },
+    pages,
+  )
+  const mismatchedEditions = new Set(
+    metadataFindings
+      .filter((finding) => finding.kind === "source-year-mismatch")
+      .map((finding) => finding.editionId),
+  )
   return {
     sources,
     state,
     changes: compareSourceStates(previous, checkedState),
-    scheduleProposals: buildScheduleProposals(catalog, pages),
+    metadataFindings,
+    scheduleProposals: buildScheduleProposals(
+      catalog,
+      pages.filter((page) => !mismatchedEditions.has(page.editionId)),
+    ),
   }
 }
 
@@ -295,6 +315,7 @@ export async function runSourceMonitor(
  * changes always remain in a human review PR.
  */
 export function isAutoMergeEligible(run: MonitorRun): boolean {
+  if (run.metadataFindings?.length) return false
   if (run.scheduleProposals.length === 0) return false
   const proposedEditionIds = new Set(run.scheduleProposals.map((proposal) => proposal.editionId))
   const proposalsAreStrict = run.scheduleProposals.every((proposal) => {
@@ -333,6 +354,14 @@ export function formatMonitorReport(run: MonitorRun): string {
       lines.push("")
     }
   }
+  lines.push("## Venue and event-date review", "")
+  for (const finding of run.metadataFindings ?? [])
+    lines.push(`- ${finding.editionId}: ${finding.kind} — ${finding.sourceUrl}`)
+  lines.push(
+    "",
+    "Metadata findings require manual verification; venue/date values are not inferred automatically.",
+    "",
+  )
   return [...lines, formatScheduleProposalReport(run.scheduleProposals)].join("\n")
 }
 

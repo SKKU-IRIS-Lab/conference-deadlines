@@ -3,6 +3,7 @@ import { catalogSchema } from "@conf/contracts"
 import {
   compareSourceStates,
   createSourceState,
+  formatMonitorReport,
   isAutoMergeEligible,
   type MonitorRun,
   monitorSources,
@@ -183,6 +184,20 @@ test("only a strict confirmed proposal is eligible for automatic merge", () => {
   }
 
   expect(isAutoMergeEligible(run)).toBe(true)
+  const metadataRun = {
+    ...run,
+    metadataFindings: [
+      {
+        editionId: "cvpr-2027",
+        sourceUrl: "https://cvpr.example.org/",
+        kind: "missing-location" as const,
+      },
+    ],
+  }
+  expect(isAutoMergeEligible(metadataRun)).toBe(false)
+  expect(formatMonitorReport({ ...metadataRun, changes: [] })).toContain(
+    "cvpr-2027: missing-location",
+  )
   const [proposal] = run.scheduleProposals
   expect(proposal).toBeDefined()
   if (!proposal) return
