@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react"
 import { z } from "zod"
-import { getManagementAdminSession, getManagementApiConfig } from "../admin/management-api"
+import { getManagementApiConfig } from "../admin/management-api"
 import "../styles/chat.css"
 
 const replySchema = z.object({
@@ -29,7 +29,6 @@ interface Turn {
 export function ChatWidget() {
   const panelId = useId()
   const [open, setOpen] = useState(false)
-  const [auth, setAuth] = useState<"checking" | "signed-out" | "ready" | "error">("checking")
   const [question, setQuestion] = useState("")
   const [turns, setTurns] = useState<readonly Turn[]>([])
   const [busy, setBusy] = useState(false)
@@ -38,36 +37,17 @@ export function ChatWidget() {
   const closeButton = useRef<HTMLButtonElement>(null)
   const bottom = useRef<HTMLDivElement>(null)
   const request = useRef<AbortController | null>(null)
+  const visitor = useRef<string | null>(null)
   const config = getManagementApiConfig()
   const apiUrl = config?.apiUrl
 
   useEffect(() => () => request.current?.abort(), [])
   useEffect(() => {
     if (!open) return
-    let cancelled = false
-    setAuth("checking")
     setError("")
     closeButton.current?.focus()
     if (!apiUrl) {
-      setAuth("error")
       setError("AI 관리 서버가 아직 설정되지 않았습니다.")
-      return
-    }
-    getManagementAdminSession({ apiUrl })
-      .then((session) => {
-        if (!cancelled) {
-          setAuth(session ? "ready" : "signed-out")
-          if (!session) setTurns([])
-        }
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setAuth("error")
-          setError("관리 서버에 연결하지 못했습니다. 잠시 후 다시 열어 주세요.")
-        }
-      })
-    return () => {
-      cancelled = true
     }
   }, [open, apiUrl])
   useEffect(() => {
@@ -79,7 +59,7 @@ export function ChatWidget() {
     trigger.current?.focus()
   }
   async function submit() {
-    if (!apiUrl || busy || request.current || auth !== "ready" || question.trim().length < 2) return
+    if (!apiUrl || busy || request.current || question.trim().length < 2) return
     const submitted = question.trim()
     const controller = new AbortController()
     request.current = controller
@@ -87,18 +67,27 @@ export function ChatWidget() {
     setBusy(true)
     setError("")
     try {
-      const response = await fetch(new URL("/api/v1/admin/chat", apiUrl), {
+      if (!visitor.current) {
+        let stored: string | null = null
+        try {
+          stored = window.localStorage.getItem("conference-chat-visitor")
+        } catch {
+          /* Storage may be disabled. */
+        }
+        visitor.current = z.string().uuid().safeParse(stored).success ? stored : crypto.randomUUID()
+        try {
+          window.localStorage.setItem("conference-chat-visitor", visitor.current ?? "")
+        } catch {
+          /* Keep the identifier in memory for this tab. */
+        }
+      }
+      const response = await fetch(new URL("/api/v1/chat", apiUrl), {
         method: "POST",
-        credentials: "include",
-        headers: { "content-type": "application/json" },
+        credentials: "omit",
+        headers: { "content-type": "application/json", "x-chat-visitor": visitor.current ?? "" },
         body: JSON.stringify({ question: submitted }),
         signal: controller.signal,
       })
-      if (response.status === 401) {
-        setAuth("signed-out")
-        setTurns([])
-        throw new Error("로그인이 만료되었습니다. 다시 로그인해 주세요.")
-      }
       const body: unknown = await response.json()
       if (!response.ok) {
         const problem = z.object({ detail: z.string() }).safeParse(body)
@@ -152,16 +141,9 @@ export function ChatWidget() {
               학회 일정·장소·Tier를 물어보세요. 질문마다 학회명과 연도를 적어 주세요. 답변은 공식
               사이트에서 다시 확인해 주세요.
             </p>
-            {auth === "checking" ? <output>로그인 확인 중…</output> : null}
-            {auth === "signed-out" ? (
-              <div className="chat-login">
-                <p>현재는 관리자 로그인 후 이용할 수 있어요.</p>
-                <a href={`${window.location.pathname}#/manage`} onClick={close}>
-                  관리자 로그인
-                </a>
-                <p>로그인한 뒤 이 채팅창을 다시 열어 주세요.</p>
-              </div>
-            ) : null}
+            <p className="chat-notice">
+              로그인 없이 이용 · 브라우저별 시간당 10회 · 서버가 바쁘면 잠시 기다려 주세요.
+            </p>
             <div role="log" aria-label="학회 AI 대화" aria-live="polite">
               {turns.map((turn, index) => (
                 <div className="chat-turn" key={`${index}-${turn.question}`}>
@@ -196,7 +178,7 @@ export function ChatWidget() {
             ) : null}
             <div ref={bottom} />
           </div>
-          {auth === "ready" ? (
+          {apiUrl ? (
             <form
               className="chat-form"
               onSubmit={(event) => {

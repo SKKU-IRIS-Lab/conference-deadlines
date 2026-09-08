@@ -1,11 +1,13 @@
 import { type Catalog, catalogSchema } from "@conf/contracts"
 import type { Hono } from "hono"
 import { bodyLimit } from "hono/body-limit"
+import { cors } from "hono/cors"
 import { z } from "zod"
 
 export interface ChatDependencies {
   readonly loadCatalog: () => Promise<Catalog>
   readonly generate: (question: string, packet: string) => Promise<string>
+  readonly now?: () => number
 }
 
 let cached: { catalog: Catalog; expires: number } | undefined
@@ -108,10 +110,22 @@ export function registerChat(
   let lastStarted = 0
   let hourStarted = 0
   let hourCount = 0
+  const visitors = new Map<string, { count: number; expires: number }>()
+  app.use(
+    "/api/v1/chat",
+    cors({
+      origin: origin ?? "",
+      allowMethods: ["POST", "OPTIONS"],
+      allowHeaders: ["content-type", "x-chat-visitor"],
+      exposeHeaders: ["Retry-After"],
+    }),
+  )
+  app.use("/api/v1/chat", bodyLimit({ maxSize: 8192 }))
   app.use("/api/v1/admin/chat", bodyLimit({ maxSize: 8192 }))
-  app.post("/api/v1/admin/chat", async (context) => {
+  app.on("POST", ["/api/v1/chat", "/api/v1/admin/chat"], async (context) => {
     context.header("Cache-Control", "no-store")
-    if (!(await authenticate(context.req.raw)))
+    const isPublic = context.req.path === "/api/v1/chat"
+    if (!isPublic && !(await authenticate(context.req.raw)))
       return context.json({ detail: "관리자 로그인이 필요합니다." }, 401)
     if (!origin || context.req.header("origin") !== origin)
       return context.json({ detail: "허용되지 않은 요청 출처입니다." }, 403)
@@ -122,7 +136,27 @@ export function registerChat(
       .strict()
       .safeParse(await context.req.json().catch(() => undefined))
     if (!parsed.success) return context.json({ detail: "질문을 2~1000자로 입력해 주세요." }, 400)
-    const now = Date.now()
+    const visitorId = isPublic
+      ? z.string().uuid().safeParse(context.req.header("x-chat-visitor"))
+      : undefined
+    if (visitorId && !visitorId.success)
+      return context.json(
+        { detail: "브라우저 식별자를 확인할 수 없습니다. 새로고침 후 다시 시도해 주세요." },
+        400,
+      )
+    const now = dependencies.now?.() ?? Date.now()
+    for (const [id, quota] of visitors) if (quota.expires <= now) visitors.delete(id)
+    const visitorKey = visitorId?.success ? visitorId.data : undefined
+    const quota = visitorKey ? visitors.get(visitorKey) : undefined
+    if (quota && quota.count >= 10) {
+      context.header("Retry-After", String(Math.ceil((quota.expires - now) / 1000)))
+      return context.json(
+        { detail: "이 브라우저의 시간당 10회 한도에 도달했습니다. 잠시 후 다시 이용해 주세요." },
+        429,
+      )
+    }
+    if (visitorKey && !quota && visitors.size >= 4096)
+      return context.json({ detail: "현재 이용자가 많습니다. 잠시 후 다시 시도해 주세요." }, 429)
     if (now - hourStarted >= 3_600_000) {
       hourStarted = now
       hourCount = 0
@@ -145,11 +179,16 @@ export function registerChat(
     busy = true
     lastStarted = now
     hourCount++
+    if (visitorKey)
+      visitors.set(visitorKey, {
+        count: (quota?.count ?? 0) + 1,
+        expires: quota?.expires ?? now + 3_600_000,
+      })
     try {
       const catalog = await dependencies.loadCatalog()
-      const selected = selectChatEditions(catalog, parsed.data.question)
+      const selected = selectChatEditions(catalog, parsed.data.question, new Date(now))
       const packet = JSON.stringify({
-        asOf: new Date().toISOString(),
+        asOf: new Date(now).toISOString(),
         matchedCount: selected.matchedCount,
         truncated: selected.truncated,
         editions: selected.editions.map((e) => ({

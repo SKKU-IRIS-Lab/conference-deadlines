@@ -1,14 +1,17 @@
 # Floating conference assistant
 
 The site displays a small lower-right launcher on catalog and management pages.
-The panel uses the existing management session; anonymous visitors are directed
-to management login. Each question is independent and should include the event
+The panel is public and does not require login or send management cookies.
+Each question is independent and should include the event
 name/year. Up to eight replies remain in component memory, not a conversation DB.
 
 ## Data and inference
 
 - Browser: `VITE_MANAGEMENT_API_URL` (existing management origin).
-- Authenticated endpoint: `POST /api/v1/admin/chat`, JSON `{ "question": "…" }`.
+- Public endpoint: `POST /api/v1/chat`, JSON `{ "question": "…" }`, with a UUID
+  `X-Chat-Visitor` header. The browser stores this random identifier locally.
+- Legacy `POST /api/v1/admin/chat` still requires a management session. All other
+  management write and approval endpoints retain their authentication requirements.
 - Catalog: the published Pages `catalog-state.json`, validated and cached for at
   most five minutes. Fetch failures fail closed after cache expiry.
 - Inference: local Ollama at `http://127.0.0.1:11434/api/chat` only.
@@ -27,9 +30,14 @@ Past-submission/timezone warnings are computed by the server, not left to the mo
 
 ## Resource and security limits
 
-Existing cookie authentication plus exact browser Origin checks are required.
+Public requests require an exact browser Origin and a valid visitor UUID.
+Origin checks are a browser restriction, not authentication: non-browser clients
+can forge Origin headers. The public endpoint does not grant management access.
 The request body is limited to 8 KiB and questions to 2–1000 characters.
-Per API process: one request in flight, at least ten seconds between starts,
+Per browser identifier: ten accepted requests per hour. Clearing storage or
+changing the identifier bypasses this fairness quota, so it is not an anti-bot
+identity guarantee. Visitor quota records expire after one hour and are bounded.
+Per API process, shared by public and legacy chat: one request in flight, at least ten seconds between starts,
 at most sixty requests per hour. Limits reset on process restart; multiple API
 processes would need shared rate-limit storage. Other Ollama clients share GPU
 capacity but do not share these application-specific limits.
@@ -40,6 +48,6 @@ a user-safe 503; existing search and management features remain independent.
 
 Restart `conference-deadlines@conference-deadlines` to load API changes. Push web
 changes to main for the existing Pages deployment. Keep Ollama off the public
-internet; only the authenticated management endpoint needs external access.
+internet; only the management API and rate-limited public chat need external access.
 
 Ollama request contract: https://docs.ollama.com/api/chat
