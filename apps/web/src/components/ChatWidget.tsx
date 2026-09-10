@@ -193,11 +193,24 @@ export function ChatWidget() {
                 id={`${panelId}-input`}
                 value={question}
                 onChange={(event) => setQuestion(event.target.value)}
+                onKeyDown={(event) => {
+                  if (
+                    event.key !== "Enter" ||
+                    event.shiftKey ||
+                    event.nativeEvent.isComposing ||
+                    event.nativeEvent.keyCode === 229
+                  )
+                    return
+                  event.preventDefault()
+                  if (!event.repeat) void submit()
+                }}
                 maxLength={1000}
                 rows={2}
                 disabled={busy}
                 placeholder="ICCE-Asia 2026 어디서 열려?"
+                aria-describedby={`${panelId}-keyboard-hint`}
               />
+              <small id={`${panelId}-keyboard-hint`}>Enter 전송 · Shift+Enter 줄바꿈</small>
               <div>
                 <small>서버에 대화 기록을 저장하지 않습니다.</small>
                 <button type="submit" disabled={busy || question.trim().length < 2}>

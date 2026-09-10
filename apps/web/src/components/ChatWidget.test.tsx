@@ -9,6 +9,35 @@ afterEach(() => {
   vi.unstubAllEnvs()
 })
 
+test("Enter sends once, while Shift+Enter and IME confirmation do not send", async () => {
+  vi.stubEnv("VITE_MANAGEMENT_API_URL", "https://manage.example.org")
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () =>
+      Response.json({
+        answer: "키보드로 전송했습니다.",
+        sources: [],
+        truncated: false,
+        matchedCount: 0,
+      }),
+    ),
+  )
+  render(<ChatWidget />)
+  fireEvent.click(screen.getByRole("button", { name: "학회 AI 열기" }))
+  const input = screen.getByRole("textbox", { name: "학회 질문" })
+  fireEvent.keyDown(input, { key: "Enter" })
+  expect(fetch).not.toHaveBeenCalled()
+  fireEvent.change(input, { target: { value: "ICCE-Asia 2026 장소" } })
+  expect(fireEvent.keyDown(input, { key: "Enter", shiftKey: true })).toBe(true)
+  expect(fireEvent.keyDown(input, { key: "Enter", isComposing: true })).toBe(true)
+  expect(fireEvent.keyDown(input, { key: "Enter", keyCode: 229 })).toBe(true)
+  expect(fetch).not.toHaveBeenCalled()
+  expect(fireEvent.keyDown(input, { key: "Enter" })).toBe(false)
+  fireEvent.keyDown(input, { key: "Enter", repeat: true })
+  expect(await screen.findByText("키보드로 전송했습니다.")).toBeTruthy()
+  expect(fetch).toHaveBeenCalledTimes(1)
+})
+
 test("floating chat opens without login or session requests and closes with Escape", async () => {
   vi.stubEnv("VITE_MANAGEMENT_API_URL", "https://manage.example.org")
   vi.stubGlobal(
