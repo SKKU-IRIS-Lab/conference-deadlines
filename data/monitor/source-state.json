@@ -13,14 +13,14 @@
       "canonicalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "finalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "kind": "available",
-      "sha256": "41d6d858f7dfb107c72910d07a1ebc5d36e70fde0487c3655e746ebe0d7ff42d"
+      "sha256": "ce2b38d793f579d631a3d5580293a142a66bf09b09dbc53055723d151fd0597e"
     },
     "accv-2026": {
       "id": "accv-2026",
       "canonicalUrl": "https://accv2026.org/",
       "finalUrl": "https://accv2026.org/",
       "kind": "available",
-      "sha256": "858c96332cc4816b58af34c64d26a03a2cbdfeff551f575e5208710249bfca8a"
+      "sha256": "b4a51b1b54d6533251e8031f1df349efb7b08aadf7fe9db9cdd1aa8202f99797"
     },
     "acl-2026": {
       "id": "acl-2026",
@@ -202,14 +202,14 @@
       "canonicalUrl": "https://2027.coling-iccl.org/",
       "finalUrl": "https://2027.coling-iccl.org/",
       "kind": "available",
-      "sha256": "7a5141747f16218cbcac73ad8e3695fef7243c28d5141ed3d190c7b877a80d60"
+      "sha256": "7a16cdbce835714c47f1edb54960da5abf1b5945d3c34a0af1049912ed517784"
     },
     "corl-2026": {
       "id": "corl-2026",
       "canonicalUrl": "https://www.corl.org/",
       "finalUrl": "https://www.corl.org/",
       "kind": "available",
-      "sha256": "edeab1ddbd5cd603a0f09f745e6cd9f1955a0c5aa6bd5a4379f8e08a00616139"
+      "sha256": "e8ec4eb18b89f2cb171cd46b97207385a7ec623371cff0656c3f32158957a19f"
     },
     "cvpr-2026": {
       "id": "cvpr-2026",
@@ -257,7 +257,7 @@
       "canonicalUrl": "https://www.date-conference.com/",
       "finalUrl": "https://www.date-conference.com/",
       "kind": "available",
-      "sha256": "abb5f3fd127dfe46bfe2c59b9a0bc69dd556ee1ed2a922baaac224e1508b498f"
+      "sha256": "5c10784f510e5f88f4893a843c71ba5f61cf2c96a5f7130249f7d5532942fc8b"
     },
     "ecai-2026": {
       "id": "ecai-2026",
@@ -326,7 +326,7 @@
       "canonicalUrl": "https://2027.eurosys.org/index.html",
       "finalUrl": "https://2027.eurosys.org/index.html",
       "kind": "available",
-      "sha256": "181a86919e235c92fdbeb97b74dd6555cde4588267a768576cd84cb1332e88ef"
+      "sha256": "f48a0fd18ebd479e9dfa7aad5ec550badf08af292dd9984dcb2a01e8f877c870"
     },
     "eurosys-2027-spring": {
       "id": "eurosys-2027-spring",
@@ -401,7 +401,7 @@
       "canonicalUrl": "https://icce-asia2026.org/2026/",
       "finalUrl": "https://icce-asia2026.org/2026/",
       "kind": "available",
-      "sha256": "3e21d423d9886576f90a09e936d1c047e9ed49aba568bfc5fb17e2307ca2147e"
+      "sha256": "00e6edf0b01b34e9fbe16cc36fccd3aef1a1525c5aeaeb9f1c9110db003febc3"
     },
     "iccv-2026": {
       "id": "iccv-2026",
@@ -526,7 +526,7 @@
       "canonicalUrl": "https://2027.ieee-iscas.org/",
       "finalUrl": "https://2027.ieee-iscas.org/",
       "kind": "available",
-      "sha256": "93c0d791e714995899a87de8463eb337b0f1aa2716d412607c80aec5cd12834d"
+      "sha256": "9af7ce70678e6292f7f93ce7314b2391de587696eb22030169eecdbd9b91ad1f"
     },
     "isicas-2026": {
       "id": "isicas-2026",
@@ -670,21 +670,21 @@
       "canonicalUrl": "https://2027.naacl.org/",
       "finalUrl": "https://2027.naacl.org/",
       "kind": "available",
-      "sha256": "4f8d3781f395853d4de0c942d9340cc3704d3be43e92d1c9bdd6e611346718aa"
+      "sha256": "fca6f0a081667a44b62888a2ad6e0148f01d43b707f48ba284c1d95d4e0896cf"
     },
     "neurips-2026": {
       "id": "neurips-2026",
       "canonicalUrl": "https://neurips.cc/Conferences/2026/Dates",
       "finalUrl": "https://neurips.cc/Conferences/2026/Dates",
       "kind": "available",
-      "sha256": "28f2442b41dd0a8e831705c4202c7b83785d13151d3ea78bab740c1e40f2b6a1"
+      "sha256": "020c5eaad2427e8f4ca98db0977cb435b2d3a0c851188f2f768be0aa6daf1801"
     },
     "neurips-2026:additional-1": {
       "id": "neurips-2026:additional-1",
       "canonicalUrl": "https://neurips.cc/Conferences/2026/CallForPapers",
       "finalUrl": "https://neurips.cc/Conferences/2026/CallForPapers",
       "kind": "available",
-      "sha256": "6093a3e5997d6582ae039f94a4916c6406aad9262dba7c61a1f7a9deb409b7c4"
+      "sha256": "f57b2032ceadd638b1e08451efe69607fac6344ad895dc66d6a3be77c5491ad6"
     },
     "newcas-2026": {
       "id": "newcas-2026",
@@ -809,7 +809,7 @@
       "canonicalUrl": "https://vcip-2026.org/",
       "finalUrl": "https://vcip-2026.org/",
       "kind": "available",
-      "sha256": "c418e22aa9ca69becd7e56fff5639886d60246bbbd506307864ff2b42a2107f7"
+      "sha256": "4c7ee400909684523c6d1552231413d107986185be2edd9d1fbfd88e817951ce"
     },
     "vlsi-2026": {
       "id": "vlsi-2026",
