@@ -294,9 +294,9 @@
           "id": "isscc-2027-paper_submission",
           "label": "논문 제출",
           "kind": "paper_submission",
-          "dueAtUtc": "2026-09-10T11:59:59Z",
-          "displayDate": "2026. 9. 9",
-          "timezone": "AoE (UTC-12) · 시간대 가정",
+          "dueAtUtc": "2026-10-08T11:59:59Z",
+          "displayDate": "2026. 10. 7",
+          "timezone": "AoE (-12:00, assumed)",
           "status": "timezone-review-needed",
           "track": "Main conference"
         },
@@ -3119,9 +3119,9 @@
           "id": "eurosys-2027-fall-final_notification",
           "label": "최종 결과 발표",
           "kind": "final_notification",
-          "dueAtUtc": "2027-01-30T11:59:59Z",
-          "displayDate": "2027. 1. 29",
-          "timezone": "AoE (UTC-12) · 시간대 가정",
+          "dueAtUtc": "2026-09-22T11:59:59Z",
+          "displayDate": "2026. 9. 21",
+          "timezone": "AoE (-12:00, assumed)",
           "status": "timezone-review-needed",
           "track": "Main conference"
         }
@@ -3399,9 +3399,9 @@
           "id": "eurosys-2027-spring-paper_submission",
           "label": "논문 제출",
           "kind": "paper_submission",
-          "dueAtUtc": "2026-05-15T11:59:59Z",
-          "displayDate": "2026. 5. 14",
-          "timezone": "AoE (UTC-12) · 시간대 가정",
+          "dueAtUtc": "2026-09-25T11:59:59Z",
+          "displayDate": "2026. 9. 24",
+          "timezone": "AoE (-12:00, assumed)",
           "status": "timezone-review-needed",
           "track": "Main conference"
         },
@@ -3439,9 +3439,9 @@
           "id": "eurosys-2027-spring-final_notification",
           "label": "최종 결과 발표",
           "kind": "final_notification",
-          "dueAtUtc": "2026-08-22T11:59:59Z",
-          "displayDate": "2026. 8. 21",
-          "timezone": "AoE (UTC-12) · 시간대 가정",
+          "dueAtUtc": "2026-09-22T11:59:59Z",
+          "displayDate": "2026. 9. 21",
+          "timezone": "AoE (-12:00, assumed)",
           "status": "timezone-review-needed",
           "track": "Main conference"
         }
@@ -5985,8 +5985,8 @@
           "id": "icce-asia-VbffVh7f-paper_submission",
           "label": "논문 제출",
           "kind": "paper_submission",
-          "dueAtUtc": "2026-09-05T11:59:59Z",
-          "displayDate": "2026. 9. 4",
+          "dueAtUtc": "2026-09-21T11:59:59Z",
+          "displayDate": "2026. 9. 20",
           "timezone": "AoE (-12:00, assumed)",
           "status": "timezone-review-needed",
           "track": "Main conference"
@@ -10249,6 +10249,61 @@
       "rawValue": "September 30th, 2026",
       "locator": "#important-dates",
       "confidence": 0.72
+    },
+    {
+      "id": "auto-eurosys-2027-fall:eurosys-2027-fall-final_notification:2026-09-20",
+      "editionId": "eurosys-2027-fall",
+      "deadlineId": "eurosys-2027-fall-final_notification",
+      "sourceTitle": "EuroSys 2027-Fall official page · automated extraction",
+      "sourceUrl": "https://2027.eurosys.org/index.html",
+      "checkedAt": "2026-09-20T19:55:18.819Z",
+      "rawValue": "September 21, 2026",
+      "locator": "#important-dates",
+      "confidence": 0.72
+    },
+    {
+      "id": "auto-eurosys-2027-spring:eurosys-2027-spring-final_notification:2026-09-20",
+      "editionId": "eurosys-2027-spring",
+      "deadlineId": "eurosys-2027-spring-final_notification",
+      "sourceTitle": "EuroSys 2027-Spring official page · automated extraction",
+      "sourceUrl": "https://2027.eurosys.org/index.html",
+      "checkedAt": "2026-09-20T19:55:20.776Z",
+      "rawValue": "September 21, 2026",
+      "locator": "#important-dates",
+      "confidence": 0.72
+    },
+    {
+      "id": "auto-eurosys-2027-spring:eurosys-2027-spring-paper_submission:2026-09-20",
+      "editionId": "eurosys-2027-spring",
+      "deadlineId": "eurosys-2027-spring-paper_submission",
+      "sourceTitle": "EuroSys 2027-Spring official page · automated extraction",
+      "sourceUrl": "https://2027.eurosys.org/index.html",
+      "checkedAt": "2026-09-20T19:55:20.776Z",
+      "rawValue": "September 24, 2026",
+      "locator": "#important-dates",
+      "confidence": 0.72
+    },
+    {
+      "id": "auto-icce-asia-VbffVh7f:icce-asia-VbffVh7f-paper_submission:2026-09-20",
+      "editionId": "icce-asia-VbffVh7f",
+      "deadlineId": "icce-asia-VbffVh7f-paper_submission",
+      "sourceTitle": "ICCE-Asia 2026 official page · automated extraction",
+      "sourceUrl": "https://icce-asia2026.org/2026/",
+      "checkedAt": "2026-09-20T19:55:34.201Z",
+      "rawValue": "September 20th, 2026",
+      "locator": "#important-dates",
+      "confidence": 0.72
+    },
+    {
+      "id": "auto-isscc-2027:isscc-2027-paper_submission:2026-09-20",
+      "editionId": "isscc-2027",
+      "deadlineId": "isscc-2027-paper_submission",
+      "sourceTitle": "ISSCC 2027 official page · automated extraction",
+      "sourceUrl": "https://www.isscc.org/",
+      "checkedAt": "2026-09-20T19:56:09.424Z",
+      "rawValue": "October 7, 2026",
+      "locator": "#important-dates",
+      "confidence": 0.72
     }
   ],
   "history": [
@@ -10386,6 +10441,51 @@
       "before": "연구실 Notion Timeline 기반 잠정 일정",
       "after": "2026-09-01 공식 CFP 페이지 대조 일정",
       "state": "accepted"
+    },
+    {
+      "id": "auto-eurosys-2027-fall:eurosys-2027-fall-final_notification:2026-09-20",
+      "editionId": "eurosys-2027-fall",
+      "changedAt": "2026-09-20T19:55:18.819Z",
+      "summary": "공식 페이지 자동 추출 날짜 변경 제안",
+      "before": "2027-01-30T11:59:59Z",
+      "after": "2026-09-22T11:59:59Z",
+      "state": "pending"
+    },
+    {
+      "id": "auto-eurosys-2027-spring:eurosys-2027-spring-final_notification:2026-09-20",
+      "editionId": "eurosys-2027-spring",
+      "changedAt": "2026-09-20T19:55:20.776Z",
+      "summary": "공식 페이지 자동 추출 날짜 변경 제안",
+      "before": "2026-08-22T11:59:59Z",
+      "after": "2026-09-22T11:59:59Z",
+      "state": "pending"
+    },
+    {
+      "id": "auto-eurosys-2027-spring:eurosys-2027-spring-paper_submission:2026-09-20",
+      "editionId": "eurosys-2027-spring",
+      "changedAt": "2026-09-20T19:55:20.776Z",
+      "summary": "공식 페이지 자동 추출 날짜 변경 제안",
+      "before": "2026-05-15T11:59:59Z",
+      "after": "2026-09-25T11:59:59Z",
+      "state": "pending"
+    },
+    {
+      "id": "auto-icce-asia-VbffVh7f:icce-asia-VbffVh7f-paper_submission:2026-09-20",
+      "editionId": "icce-asia-VbffVh7f",
+      "changedAt": "2026-09-20T19:55:34.201Z",
+      "summary": "공식 페이지 자동 추출 날짜 변경 제안",
+      "before": "2026-09-05T11:59:59Z",
+      "after": "2026-09-21T11:59:59Z",
+      "state": "pending"
+    },
+    {
+      "id": "auto-isscc-2027:isscc-2027-paper_submission:2026-09-20",
+      "editionId": "isscc-2027",
+      "changedAt": "2026-09-20T19:56:09.424Z",
+      "summary": "공식 페이지 자동 추출 날짜 변경 제안",
+      "before": "2026-09-10T11:59:59Z",
+      "after": "2026-10-08T11:59:59Z",
+      "state": "pending"
     }
   ]
 }
