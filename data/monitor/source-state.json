@@ -20,7 +20,7 @@
       "canonicalUrl": "https://accv2026.org/",
       "finalUrl": "https://accv2026.org/",
       "kind": "available",
-      "sha256": "858c96332cc4816b58af34c64d26a03a2cbdfeff551f575e5208710249bfca8a"
+      "sha256": "69a372283c0493ad6d919eb04204dbd2c7c4a248e1fab7dba39faea6a7f4588e"
     },
     "acl-2026": {
       "id": "acl-2026",
@@ -202,14 +202,14 @@
       "canonicalUrl": "https://2027.coling-iccl.org/",
       "finalUrl": "https://2027.coling-iccl.org/",
       "kind": "available",
-      "sha256": "7a5141747f16218cbcac73ad8e3695fef7243c28d5141ed3d190c7b877a80d60"
+      "sha256": "7a16cdbce835714c47f1edb54960da5abf1b5945d3c34a0af1049912ed517784"
     },
     "corl-2026": {
       "id": "corl-2026",
       "canonicalUrl": "https://www.corl.org/",
       "finalUrl": "https://www.corl.org/",
       "kind": "available",
-      "sha256": "edeab1ddbd5cd603a0f09f745e6cd9f1955a0c5aa6bd5a4379f8e08a00616139"
+      "sha256": "635a1f73a1cd59a39f5b18dc92bdb5b65dc410bcb9047b8beac7a6c6b2f99390"
     },
     "cvpr-2026": {
       "id": "cvpr-2026",
@@ -367,7 +367,7 @@
       "canonicalUrl": "https://hpca-conf.org/",
       "finalUrl": "https://hpca-conf.org/",
       "kind": "available",
-      "sha256": "3a23b4ed9a8a937a905af7c6ae61062855e7fb73d9ae2deef63040f6cea4f860"
+      "sha256": "b2c5c59af9b8fdfa485f90572b145f1dabc0a5399ef53a2bfd4b1d7e5a5c478b"
     },
     "icassp-2026": {
       "id": "icassp-2026",
@@ -401,7 +401,7 @@
       "canonicalUrl": "https://icce-asia2026.org/2026/",
       "finalUrl": "https://icce-asia2026.org/2026/",
       "kind": "available",
-      "sha256": "3e21d423d9886576f90a09e936d1c047e9ed49aba568bfc5fb17e2307ca2147e"
+      "sha256": "e00e335f8e4cfd2443aab5d8de706d4835e90f4673c242e7a73b2d86d65d93e8"
     },
     "iccv-2026": {
       "id": "iccv-2026",
@@ -526,7 +526,7 @@
       "canonicalUrl": "https://2027.ieee-iscas.org/",
       "finalUrl": "https://2027.ieee-iscas.org/",
       "kind": "available",
-      "sha256": "93c0d791e714995899a87de8463eb337b0f1aa2716d412607c80aec5cd12834d"
+      "sha256": "4d8a89e13737fc33c933eed5a5de6659c128008fee3ddc2dad6a51c50a0db731"
     },
     "isicas-2026": {
       "id": "isicas-2026",
@@ -561,7 +561,7 @@
       "canonicalUrl": "https://www.isscc.org/",
       "finalUrl": "https://www.isscc.org/",
       "kind": "available",
-      "sha256": "cf09984ec060243893de4f37ddcda61b6227a0a1e3d001d0dddc6854d0812820"
+      "sha256": "2dde14a6c7ead3a44b9a2bf24bfb9015c7e3c2fd3f629cbc2759b99551d1ae3d"
     },
     "kdd-1st-cycle-2026": {
       "id": "kdd-1st-cycle-2026",
@@ -635,7 +635,7 @@
       "canonicalUrl": "https://2027.acmmmsys.org/",
       "finalUrl": "https://2027.acmmmsys.org/",
       "kind": "available",
-      "sha256": "4ce3b79b2e6a17e2a1b5afba7a610391f244dc462eaa65e0d74ef45ae53b2bb2"
+      "sha256": "a2040792293d3ff3770ae964813a7572bcff96bce54243c91e7f8a0943739417"
     },
     "mmsys-2027-2nd": {
       "id": "mmsys-2027-2nd",
@@ -670,7 +670,7 @@
       "canonicalUrl": "https://2027.naacl.org/",
       "finalUrl": "https://2027.naacl.org/",
       "kind": "available",
-      "sha256": "4f8d3781f395853d4de0c942d9340cc3704d3be43e92d1c9bdd6e611346718aa"
+      "sha256": "fca6f0a081667a44b62888a2ad6e0148f01d43b707f48ba284c1d95d4e0896cf"
     },
     "neurips-2026": {
       "id": "neurips-2026",
@@ -809,7 +809,7 @@
       "canonicalUrl": "https://vcip-2026.org/",
       "finalUrl": "https://vcip-2026.org/",
       "kind": "available",
-      "sha256": "c418e22aa9ca69becd7e56fff5639886d60246bbbd506307864ff2b42a2107f7"
+      "sha256": "2703a9a583621adb5aefe5b5775f85debc36c75685d619373f699c8a62cd0e12"
     },
     "vlsi-2026": {
       "id": "vlsi-2026",
