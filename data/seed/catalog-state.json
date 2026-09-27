@@ -294,9 +294,9 @@
           "id": "isscc-2027-paper_submission",
           "label": "논문 제출",
           "kind": "paper_submission",
-          "dueAtUtc": "2026-09-10T11:59:59Z",
-          "displayDate": "2026. 9. 9",
-          "timezone": "AoE (UTC-12) · 시간대 가정",
+          "dueAtUtc": "2026-10-08T11:59:59Z",
+          "displayDate": "2026. 10. 7",
+          "timezone": "AoE (-12:00, assumed)",
           "status": "timezone-review-needed",
           "track": "Main conference"
         },
@@ -10249,6 +10249,17 @@
       "rawValue": "September 30th, 2026",
       "locator": "#important-dates",
       "confidence": 0.72
+    },
+    {
+      "id": "auto-isscc-2027:isscc-2027-paper_submission:2026-09-27",
+      "editionId": "isscc-2027",
+      "deadlineId": "isscc-2027-paper_submission",
+      "sourceTitle": "ISSCC 2027 official page · automated extraction",
+      "sourceUrl": "https://www.isscc.org/",
+      "checkedAt": "2026-09-27T20:34:19.442Z",
+      "rawValue": "October 7, 2026",
+      "locator": "#important-dates",
+      "confidence": 0.72
     }
   ],
   "history": [
@@ -10386,6 +10397,15 @@
       "before": "연구실 Notion Timeline 기반 잠정 일정",
       "after": "2026-09-01 공식 CFP 페이지 대조 일정",
       "state": "accepted"
+    },
+    {
+      "id": "auto-isscc-2027:isscc-2027-paper_submission:2026-09-27",
+      "editionId": "isscc-2027",
+      "changedAt": "2026-09-27T20:34:19.442Z",
+      "summary": "공식 페이지 자동 추출 날짜 변경 제안",
+      "before": "2026-09-10T11:59:59Z",
+      "after": "2026-10-08T11:59:59Z",
+      "state": "pending"
     }
   ]
 }
