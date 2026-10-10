@@ -13,7 +13,7 @@
       "canonicalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "finalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "kind": "available",
-      "sha256": "41d6d858f7dfb107c72910d07a1ebc5d36e70fde0487c3655e746ebe0d7ff42d"
+      "sha256": "90bd3b41c5abf86067c1dc3ef6e5b91cca56f2aadc80b74a2c9aeb483a1a395b"
     },
     "accv-2026": {
       "id": "accv-2026",
@@ -202,14 +202,14 @@
       "canonicalUrl": "https://2027.coling-iccl.org/",
       "finalUrl": "https://2027.coling-iccl.org/",
       "kind": "available",
-      "sha256": "7a5141747f16218cbcac73ad8e3695fef7243c28d5141ed3d190c7b877a80d60"
+      "sha256": "c9902635493292879f095a7d0864570e3389bf9491e46ae2b5c7736bc3a6141b"
     },
     "corl-2026": {
       "id": "corl-2026",
       "canonicalUrl": "https://www.corl.org/",
       "finalUrl": "https://www.corl.org/",
       "kind": "available",
-      "sha256": "edeab1ddbd5cd603a0f09f745e6cd9f1955a0c5aa6bd5a4379f8e08a00616139"
+      "sha256": "0aaf88d434fa78322b9b86ff02705a578c57d6e2b354fe1371c2e935ef9a387d"
     },
     "cvpr-2026": {
       "id": "cvpr-2026",
@@ -367,7 +367,7 @@
       "canonicalUrl": "https://hpca-conf.org/",
       "finalUrl": "https://hpca-conf.org/",
       "kind": "available",
-      "sha256": "3a23b4ed9a8a937a905af7c6ae61062855e7fb73d9ae2deef63040f6cea4f860"
+      "sha256": "bf67d0e13a4c406426b1d0af44c7516df463cfdea592eb9e6a2c61c9ff847af4"
     },
     "icassp-2026": {
       "id": "icassp-2026",
@@ -526,7 +526,7 @@
       "canonicalUrl": "https://2027.ieee-iscas.org/",
       "finalUrl": "https://2027.ieee-iscas.org/",
       "kind": "available",
-      "sha256": "93c0d791e714995899a87de8463eb337b0f1aa2716d412607c80aec5cd12834d"
+      "sha256": "8d65b8ce153e4813740a358020bf5d1d45ced86fc7023c16de236de6e4c07348"
     },
     "isicas-2026": {
       "id": "isicas-2026",
@@ -561,7 +561,7 @@
       "canonicalUrl": "https://www.isscc.org/",
       "finalUrl": "https://www.isscc.org/",
       "kind": "available",
-      "sha256": "cf09984ec060243893de4f37ddcda61b6227a0a1e3d001d0dddc6854d0812820"
+      "sha256": "f01e16d579a0d6fc07193e9104259ea61c54704b9ccbb6972246010c1c9e24e7"
     },
     "kdd-1st-cycle-2026": {
       "id": "kdd-1st-cycle-2026",
@@ -635,7 +635,7 @@
       "canonicalUrl": "https://2027.acmmmsys.org/",
       "finalUrl": "https://2027.acmmmsys.org/",
       "kind": "available",
-      "sha256": "4ce3b79b2e6a17e2a1b5afba7a610391f244dc462eaa65e0d74ef45ae53b2bb2"
+      "sha256": "44ecaeed561021f09625054072f8363510ba7199497451be423de928e57832d6"
     },
     "mmsys-2027-2nd": {
       "id": "mmsys-2027-2nd",
@@ -670,7 +670,7 @@
       "canonicalUrl": "https://2027.naacl.org/",
       "finalUrl": "https://2027.naacl.org/",
       "kind": "available",
-      "sha256": "4f8d3781f395853d4de0c942d9340cc3704d3be43e92d1c9bdd6e611346718aa"
+      "sha256": "3121d315c918c5521efd473e2e9140cd0bdfe0ea7f5b7ff9b8bdf1fdffdab883"
     },
     "neurips-2026": {
       "id": "neurips-2026",
