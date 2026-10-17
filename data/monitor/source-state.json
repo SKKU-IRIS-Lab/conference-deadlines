@@ -13,7 +13,7 @@
       "canonicalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "finalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "kind": "available",
-      "sha256": "41d6d858f7dfb107c72910d07a1ebc5d36e70fde0487c3655e746ebe0d7ff42d"
+      "sha256": "1242a8bacdc211136113daf42fae04630c8516e21c0d7bbd6ffeb0f234eafd74"
     },
     "accv-2026": {
       "id": "accv-2026",
@@ -561,7 +561,7 @@
       "canonicalUrl": "https://www.isscc.org/",
       "finalUrl": "https://www.isscc.org/",
       "kind": "available",
-      "sha256": "cf09984ec060243893de4f37ddcda61b6227a0a1e3d001d0dddc6854d0812820"
+      "sha256": "cae72fa560d4be14f0a10d8daf6a30efdab9ce9ad75c0dbe96df2db5e1c2974e"
     },
     "kdd-1st-cycle-2026": {
       "id": "kdd-1st-cycle-2026",
@@ -635,14 +635,14 @@
       "canonicalUrl": "https://2027.acmmmsys.org/",
       "finalUrl": "https://2027.acmmmsys.org/",
       "kind": "available",
-      "sha256": "4ce3b79b2e6a17e2a1b5afba7a610391f244dc462eaa65e0d74ef45ae53b2bb2"
+      "sha256": "44ecaeed561021f09625054072f8363510ba7199497451be423de928e57832d6"
     },
     "mmsys-2027-2nd": {
       "id": "mmsys-2027-2nd",
       "canonicalUrl": "https://2027.acmmmsys.org/",
       "finalUrl": "https://2027.acmmmsys.org/",
       "kind": "available",
-      "sha256": "4ce3b79b2e6a17e2a1b5afba7a610391f244dc462eaa65e0d74ef45ae53b2bb2"
+      "sha256": "44ecaeed561021f09625054072f8363510ba7199497451be423de928e57832d6"
     },
     "mwscas-2026": {
       "id": "mwscas-2026",
@@ -732,7 +732,7 @@
       "canonicalUrl": "https://www.sigapp.org/sac/sac2027/",
       "finalUrl": "https://www.sigapp.org/sac/sac2027/",
       "kind": "available",
-      "sha256": "282eedaf9115691510461fff2ed47e7bc04fff8bf263c7b66f1d682ec93844fe"
+      "sha256": "d4016aa9309676767f56c62ac5fee3ee3e4763faccd7f602ce909a55d9253f97"
     },
     "sensys-2026-2nd": {
       "id": "sensys-2026-2nd",
