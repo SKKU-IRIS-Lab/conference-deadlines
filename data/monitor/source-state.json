@@ -13,7 +13,7 @@
       "canonicalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "finalUrl": "https://aaai.org/conference/aaai/aaai-27/",
       "kind": "available",
-      "sha256": "41d6d858f7dfb107c72910d07a1ebc5d36e70fde0487c3655e746ebe0d7ff42d"
+      "sha256": "cd8f280280e26037b45d1e5ba1d96e3a95bf87cdfcce391da18c78f0dc92c49e"
     },
     "accv-2026": {
       "id": "accv-2026",
@@ -635,14 +635,14 @@
       "canonicalUrl": "https://2027.acmmmsys.org/",
       "finalUrl": "https://2027.acmmmsys.org/",
       "kind": "available",
-      "sha256": "4ce3b79b2e6a17e2a1b5afba7a610391f244dc462eaa65e0d74ef45ae53b2bb2"
+      "sha256": "fd69b5c6480b655e17953779c98f3f9ee4aff91582811c54eee4e300654fcee0"
     },
     "mmsys-2027-2nd": {
       "id": "mmsys-2027-2nd",
       "canonicalUrl": "https://2027.acmmmsys.org/",
       "finalUrl": "https://2027.acmmmsys.org/",
       "kind": "available",
-      "sha256": "4ce3b79b2e6a17e2a1b5afba7a610391f244dc462eaa65e0d74ef45ae53b2bb2"
+      "sha256": "fd69b5c6480b655e17953779c98f3f9ee4aff91582811c54eee4e300654fcee0"
     },
     "mwscas-2026": {
       "id": "mwscas-2026",
@@ -732,7 +732,7 @@
       "canonicalUrl": "https://www.sigapp.org/sac/sac2027/",
       "finalUrl": "https://www.sigapp.org/sac/sac2027/",
       "kind": "available",
-      "sha256": "282eedaf9115691510461fff2ed47e7bc04fff8bf263c7b66f1d682ec93844fe"
+      "sha256": "d4016aa9309676767f56c62ac5fee3ee3e4763faccd7f602ce909a55d9253f97"
     },
     "sensys-2026-2nd": {
       "id": "sensys-2026-2nd",
