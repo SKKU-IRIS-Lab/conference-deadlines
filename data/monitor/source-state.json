@@ -257,7 +257,7 @@
       "canonicalUrl": "https://www.date-conference.com/",
       "finalUrl": "https://www.date-conference.com/",
       "kind": "available",
-      "sha256": "abb5f3fd127dfe46bfe2c59b9a0bc69dd556ee1ed2a922baaac224e1508b498f"
+      "sha256": "bf1d00643fb89942fd34e2a921445b564f676c929286be4a597a40b2743dc8cd"
     },
     "ecai-2026": {
       "id": "ecai-2026",
@@ -642,7 +642,7 @@
       "canonicalUrl": "https://2027.acmmmsys.org/",
       "finalUrl": "https://2027.acmmmsys.org/",
       "kind": "available",
-      "sha256": "4ce3b79b2e6a17e2a1b5afba7a610391f244dc462eaa65e0d74ef45ae53b2bb2"
+      "sha256": "32d035257c1098b6fad7cf237e25a4e4827625dc280475955593c2f1fc9f125a"
     },
     "mwscas-2026": {
       "id": "mwscas-2026",
@@ -732,7 +732,7 @@
       "canonicalUrl": "https://www.sigapp.org/sac/sac2027/",
       "finalUrl": "https://www.sigapp.org/sac/sac2027/",
       "kind": "available",
-      "sha256": "282eedaf9115691510461fff2ed47e7bc04fff8bf263c7b66f1d682ec93844fe"
+      "sha256": "d4016aa9309676767f56c62ac5fee3ee3e4763faccd7f602ce909a55d9253f97"
     },
     "sensys-2026-2nd": {
       "id": "sensys-2026-2nd",
